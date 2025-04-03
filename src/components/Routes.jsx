@@ -4,6 +4,7 @@ import BookingPage from './BookingPage';
 import Chicago from './Chicago';
 import Specials from './Specials';
 import CustomersSay from './CustomersSay';
+import ConfirmedBooking from './ConfirmedBooking';
 
 function Routes() {
   return (
@@ -13,6 +14,7 @@ function Routes() {
       <Route path="/about" element={<Chicago />} />
       <Route path="/menu" element={<Specials />} />
       <Route path="/testimonials" element={<CustomersSay />} />
+      <Route path="/booking-confirmed" element={<ConfirmedBooking />} />
     </RouterRoutes>
   );
 }
