@@ -1,14 +1,36 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Nav.css';
+
 function Nav() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/menu">Menu</a></li>
-                <li><a href="/reservations">Reservations</a></li>
-                <li><a href="/order-online">Order Online</a></li>
-                <li><a href="/login">Login</a></li>
-            </ul>
+        <nav className="nav-container">
+            <div className="nav-content">
+                <Link to="/" className="logo">
+                    Little Lemon
+                </Link>
+                <button 
+                    className="mobile-menu-button"
+                    onClick={toggleMenu}
+                    aria-label="Toggle menu"
+                >
+                    ☰
+                </button>
+                <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+                    <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+                    <li><Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
+                    <li><Link to="/menu" onClick={() => setIsMenuOpen(false)}>Menu</Link></li>
+                    <li><Link to="/reservations" onClick={() => setIsMenuOpen(false)}>Reservations</Link></li>
+                    <li><Link to="/order-online" onClick={() => setIsMenuOpen(false)}>Order Online</Link></li>
+                    <li><Link to="/login" onClick={() => setIsMenuOpen(false)}>Login</Link></li>
+                </ul>
+            </div>
         </nav>
     );
 }
