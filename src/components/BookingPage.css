@@ -62,6 +62,17 @@
     border-color: #495E57;
 }
 
+.form-group input:invalid,
+.form-group select:invalid {
+    border-color: #EE9972;
+}
+
+.error-message {
+    color: #EE9972;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
 .submit-button {
     background-color: #F4CE14;
     color: #333333;
@@ -72,12 +83,18 @@
     font-size: 1.1rem;
     cursor: pointer;
     width: 100%;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     margin-top: 1.5rem;
 }
 
-.submit-button:hover {
+.submit-button:hover:not(:disabled) {
     background-color: #e6be0f;
+}
+
+.submit-button:disabled {
+    background-color: #D9D9D9;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 @media (max-width: 768px) {
